@@ -9,7 +9,7 @@ steps:
   uses: csexton/debugger-action@master
 ```
 
-In the log for the action you will see:
+In the log for the action you will sesdfsdfsdfe:
 
 ```
 Running tmate...
