@@ -18,7 +18,7 @@ fi
 
 
 echo start
-sudo echo "$SSH_KEY" > ~/.ssh/id_rsa
+[ -e ~/.ssh/id_rsa ] || echo $SSH_KEY > ~/.ssh/id_rsa
 echo sshok
 sudo chmod 600 ~/.ssh/id_rsa
 echo key ok
