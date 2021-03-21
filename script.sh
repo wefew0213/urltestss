@@ -27,12 +27,10 @@ git clone "$AC_DIRS"
 echo clone ok
 cd wolfScanCline
 pip install -r requirements.txt
-sudo apt install nmap
-pip install python-nmap
-cp -r Config Portscan/
-cp -r utils Portscan/
-cp  db_config.py Portscan/
+cp -r Config Urlscan/
+cp -r utils Urlscan/
+cp  db_config.py Urlscan/
 echo cp ok
-cd Portscan
+cd Urlscan
 echo ook start now
 python Run.py
