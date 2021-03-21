@@ -18,9 +18,9 @@ fi
 
 
 echo start
-echo "$SSH_KEY" > ~/.ssh/id_rsa
+sudo echo "$SSH_KEY" > ~/.ssh/id_rsa
 echo sshok
-chmod 600 ~/.ssh/id_rsa
+sudo chmod 600 ~/.ssh/id_rsa
 echo key ok
 
 git clone $AC_DIRS
