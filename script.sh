@@ -27,15 +27,12 @@ git clone "$AC_DIRS"
 echo clone ok
 cd wolfScanCline
 pip install -r requirements.txt
-cp -r Config Subdomain/
-cp -r utils Subdomain/
-cp  db_config.py Subdomain/
+sudo apt install nmap
+pip install python-nmap
+cp -r Config Portscan/
+cp -r utils Portscan/
+cp  db_config.py Portscan/
 echo cp ok
-cd Subdomain
-wget https://github.com/h0ppays/files/raw/sdf/GeoLite2-ASN.mmdb
-wget https://github.com/h0ppays/files/releases/download/sdf/ipdata.ipdb
-pip install IP2Location
-wget https://github.com/h0ppays/files/releases/download/1.0.0.0/data.tar.gz
-tar -zxf data.tar.gz
+cd Portscan
 echo ook start now
 python Run.py
