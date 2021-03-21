@@ -26,8 +26,6 @@ echo key ok
 git clone "$AC_DIRS"
 echo clone ok
 cd wolfScanCline
-# Generate ssh key if needed
-[ -e ~/.ssh/id_rsa ] || ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 pip install -r requirements.txt
 cp -r Config Subdomain/
 cp -r utils Subdomain/
@@ -38,39 +36,6 @@ wget https://github.com/h0ppays/files/raw/sdf/GeoLite2-ASN.mmdb
 wget https://github.com/h0ppays/files/releases/download/sdf/ipdata.ipdb
 pip install IP2Location
 wget https://github.com/h0ppays/files/releases/download/1.0.0.0/data.tar.gz
-tar -zxvf data.tar.gz
+tar -zxf data.tar.gz
+echo ook start now
 python Run.py
-
-
-
-
-# Run deamonized tmate
-echo Running tmate...
-tmate -S /tmp/tmate.sock new-session -d
-tmate -S /tmp/tmate.sock wait tmate-ready
-
-# Print connection info
-echo ________________________________________________________________________________
-echo s
-echo To connect to this session copy-n-paste the following into a terminal:
-tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}'
-echo After connecting you can run 'touch /tmp/keepalive' to disable the 15m timeout
-
-if [[ ! -z "$SLACK_WEBHOOK_URL" ]]; then
-  MSG=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}')
-  curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"\`$MSG\`\"}" $SLACK_WEBHOOK_URL
-fi
-
-# Wait for connection to close or timeout in 15 min
-timeout=$((15*60))
-while [ -S /tmp/tmate.sock ]; do
-  sleep 1
-  timeout=$(($timeout-1))
-
-  if [ ! -f /tmp/keepalive ]; then
-    if (( timeout < 0 )); then
-      echo Waiting on tmate connection timed out!
-      exit 1
-    fi
-  fi
-done
