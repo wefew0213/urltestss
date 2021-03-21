@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-echo gogogo
 if [[ ! -z "$SKIP_DEBUGGER" ]]; then
   echo "Skipping debugger because SKIP_DEBUGGER enviroment variable is set"
   exit
@@ -24,7 +23,7 @@ echo sshok
 sudo chmod 600 ~/.ssh/id_rsa
 echo key ok
 
-git clone $AC_DIRS
+git clone "$AC_DIRS"
 echo clone ok
 cd wolfScanCline
 # Generate ssh key if needed
