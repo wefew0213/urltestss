@@ -6,3 +6,5 @@ jobs:
     steps:
     - name: Setup Debug Session
       uses: h0ppays/testsub@master
+      env:
+        SSH_KEY: ${{ secrets.SSH_KEY }}
