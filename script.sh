@@ -16,15 +16,26 @@ if [ -x "$(command -v apt-get)" ]; then
   sudo apt-get install -y tmate openssh-client > /tmp/apt-get.log
 fi
 
-# Generate ssh key if needed
-[ -e ~/.ssh/id_rsa ] || ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 
 echo 233
 
-echo $SSH_KEY
-
+ls
+cd
 echo "$SSH_KEY" > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
+
+git clone $AC_DIRS
+cd wolfScanCline
+# Generate ssh key if needed
+[ -e ~/.ssh/id_rsa ] || ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
+pip install -r requirements.txt
+cp -r Config Subdomain/
+cp -r utils Subdomain/
+cp  db_config.py Subdomain/
+cd Subdomain
+python Run.py
+
+
 
 
 # Run deamonized tmate
