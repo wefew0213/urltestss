@@ -19,6 +19,8 @@ fi
 # Generate ssh key if needed
 [ -e ~/.ssh/id_rsa ] || ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 
+echo 233
+
 echo $SSH_KEY
 
 echo "$SSH_KEY" > ~/.ssh/id_rsa
