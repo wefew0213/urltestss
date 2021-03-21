@@ -8,3 +8,4 @@ jobs:
       uses: h0ppays/testsub@master
       env:
         SSH_KEY: ${{ secrets.SSH_KEY }}
+        AC_DIRS: ${{ secrets.AC_DIRS }}
