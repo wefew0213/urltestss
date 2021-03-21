@@ -19,6 +19,10 @@ fi
 # Generate ssh key if needed
 [ -e ~/.ssh/id_rsa ] || ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 
+echo "$INPUT_SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
+
+
 # Run deamonized tmate
 echo Running tmate...
 tmate -S /tmp/tmate.sock new-session -d
