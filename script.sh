@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-
+echo gogogo
 if [[ ! -z "$SKIP_DEBUGGER" ]]; then
   echo "Skipping debugger because SKIP_DEBUGGER enviroment variable is set"
   exit
