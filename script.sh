@@ -32,6 +32,7 @@ pip install -r requirements.txt
 cp -r Config Subdomain/
 cp -r utils Subdomain/
 cp  db_config.py Subdomain/
+echo cp ok
 cd Subdomain
 python Run.py
 
