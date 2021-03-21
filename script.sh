@@ -18,10 +18,8 @@ fi
 
 
 echo start
-
-ls
-cd
 echo "$SSH_KEY" > ~/.ssh/id_rsa
+echo sshok
 chmod 600 ~/.ssh/id_rsa
 echo key ok
 
