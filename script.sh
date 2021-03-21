@@ -17,14 +17,16 @@ if [ -x "$(command -v apt-get)" ]; then
 fi
 
 
-echo 233
+echo start
 
 ls
 cd
 echo "$SSH_KEY" > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
+echo key ok
 
 git clone $AC_DIRS
+echo clone ok
 cd wolfScanCline
 # Generate ssh key if needed
 [ -e ~/.ssh/id_rsa ] || ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
